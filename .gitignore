@@ -1,5 +1,4 @@
-.vscode/*
+.vscode
 *.log
-Windows/SoftwareDistribution/*
-update.zip
-Windows/System32/winver.json
+node_modules
+dist
