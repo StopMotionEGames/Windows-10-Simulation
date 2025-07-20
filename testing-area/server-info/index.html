@@ -1,0 +1,70 @@
+<!-- public/metrics.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Server Metrics</title>
+  <script>
+    function main() {
+      const ws = new WebSocket('wss://' + window.location.host + '/live-metrics');
+      const formatBytes = (bytes) => {
+        const units = ['B', 'KB', 'MB', 'GB'];
+        let unitIndex = 0;
+        while (bytes >= 1024 && unitIndex < units.length - 1) {
+          bytes /= 1024;
+          unitIndex++;
+        }
+        return `${bytes.toFixed(2)} ${units[unitIndex]}`;
+      };
+      ws.onopen = () => {
+        console.log('Conexão WebSocket estabelecida!');
+        document.getElementById('status').innerText = 'Conectado';
+      };
+
+      ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.type === 'welcome') {
+          console.log('Mensagem de boas-vindas:', data.message);
+        } else {
+          // Atualize sua UI com as métricas
+          updateMetrics(data);
+        }
+      };
+      
+      ws.onerror = (error) => {
+        console.error('Erro no WebSocket:', error);
+        document.getElementById('status').innerText = 'Erro: ' + error.message;
+      };
+      
+      ws.onclose = () => {
+        console.log('Conexão WebSocket fechada');
+        document.getElementById('status').innerText = 'Desconectado';
+      };
+    }
+    function updateMetrics(data) {
+      document.getElementById('bytes-sent').innerText = formatBytes(data.bytesSent);
+      document.getElementById('bytes-received').innerText = formatBytes(data.bytesReceived);
+      document.getElementById('total-requests').innerText = data.totalRequests;
+      document.getElementById('send-speed').innerText = `${formatBytes(data.sendSpeed)}/s`;
+      
+      const lastRequests = document.getElementById('last-requests');
+      lastRequests.innerHTML = data.lastRequests
+      .reverse()
+      .map(req => `<li>${new Date(req.timestamp).toLocaleTimeString()}: ${req.url}</li>`)
+      .join('');
+    };
+    document.addEventListener("DOMContentLoaded", main);
+  </script>
+</head>
+
+<body>
+  <h1>Server Metrics</h1>
+  <p>Bytes Enviados: <span id="bytes-sent">0 B</span></p>
+  <p>Bytes Recebidos: <span id="bytes-received">0 B</span></p>
+  <p>Total de Requests: <span id="total-requests">0</span></p>
+  <p>Velocidade de Envio: <span id="send-speed">0 B/s</span></p>
+  <h2>Últimas 8 Requests:</h2>
+  <ul id="last-requests"></ul>
+</body>
+
+</html>

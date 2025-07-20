@@ -1,0 +1,12 @@
+[Unit]
+Description=Start Windows 10 Simulation application on node.js
+After=network.target
+
+[Service]
+User=rw
+WorkingDirectory=/NodeJS-Projects/winsimu
+ExecStart=/usr/bin/node server.ts --experimental-strip-types
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

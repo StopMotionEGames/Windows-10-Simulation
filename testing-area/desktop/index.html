@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html system-use-light-theme="0" use-transparency="1" style="color: white; background-color: rgb(0, 0, 0)" lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Folderview</title>
+  <!-- <script src="/Windows/System32/dwm.exe.js"></script> -->
+  <link rel="stylesheet" href="/Windows/System32/dwm.css">
+  </script>
+</head>
+
+<body></body>
+<script>
+  globalThis.start = async function () {
+    await __ProcMgr__.ProcessCreate("Desktop Window Manager", "/Windows/System32/dwm.exe.js", 4);
+    await __ProcMgr__.ProcessCreate("Explorer", "/testing-area/desktop/explorer.exe.js", 4);
+  }
+</script>
+<script src="/Windows/System32/ntoskrnl.exe.js" onload="start();" type="module"></script>
+
+</html>

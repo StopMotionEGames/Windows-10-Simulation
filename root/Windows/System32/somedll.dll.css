@@ -1,0 +1,148 @@
+[system-use-light-theme="1"] {
+  --taskbar-button-hover-color: #fff6;
+  --taskbar-button-active-color: #ffffff80;
+  --start-button-active-color: #fff3;
+  --start-button-icon-base-color: #000;
+
+  &[use-transparency="0"] {
+    --taskbar-background-color: #eee;
+    --grain-opacity: 0;
+    --blur: none;
+  }
+
+  &[use-transparency="1"] {
+    --taskbar-background-color: #ffffffce;
+    /* --taskbar-background-color: #eeeeeed9; */
+    --grain-opacity: 0.12;
+    --blur: blur(18px);
+  }
+}
+
+[system-use-light-theme="0"] {
+  --taskbar-button-hover-color: #ffffff19;
+  --taskbar-button-active-color: #ffffff25;
+  --start-button-active-color: #ffffff0d;
+  --start-button-icon-base-color: #fff;
+
+  &[use-transparency="0"] {
+    --taskbar-background-color: #202020;
+    --grain-opacity: 0;
+    --blur: none;
+  }
+
+  &[use-transparency="1"] {
+    --taskbar-background-color: #101010ca;
+    /* --taskbar-background-color: #101010e9; */
+    --grain-opacity: 0.14;
+    --blur: blur(18px);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI Semilight";
+  font-size: 13px;
+  overflow: hidden;
+  background-color: #005a9e;
+  background: no-repeat center center / cover url(../Web/Wallpaper/Windows/img0.jpg);
+}
+
+#desktop {
+  display: flex;
+  height: 100dvh;
+}
+
+#taskbar-panel {
+  user-select: none;
+  height: 40px;
+  width: 100dvw;
+  align-self: flex-end;
+  background-color: var(--taskbar-background-color);
+  display: flex;
+  justify-content: space-between;
+  z-index: 50;
+}
+
+#taskbar-left {
+  height: 100%;
+  z-index: 1;
+  display: flex;
+}
+
+#start {
+  width: 48px;
+  padding: 0;
+  margin-right: 2px;
+  color: var(--start-button-icon-base-color);
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    color: #429ce3;
+  }
+
+  &:active {
+    color: #0078d7;
+  }
+}
+
+.taskbar-button {
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: inherit;
+}
+
+.taskbar-button:hover,
+#start:hover {
+  background-color: var(--taskbar-button-hover-color);
+}
+
+.taskbar-button:active {
+  background-color: var(--taskbar-button-active-color);
+}
+
+#start:active {
+  background-color: var(--start-button-active-color) !important;
+}
+
+:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+
+#taskbar-right {
+  display: flex;
+  flex-direction: row-reverse;
+  z-index: 1;
+}
+
+#taskbar-date-time {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.blur {
+  position: absolute;
+  width: 100%;
+  height: -webkit-fill-available;
+  backdrop-filter: var(--blur);
+}
+
+.grain {
+  position: absolute;
+  width: 100%;
+  height: -webkit-fill-available;
+  background-image: url(/Windows/System32/NoiseAsset_256x256_PNG.png);
+  opacity: var(--grain-opacity);
+  background-size: 32.8px;
+}
