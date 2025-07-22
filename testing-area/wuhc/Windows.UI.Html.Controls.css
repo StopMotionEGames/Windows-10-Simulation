@@ -68,6 +68,7 @@ button[is=wuhc-button] {
 }
 
 wuhc-progressbar {
+  --anim-template: 3.917s linear infinite;
   --width: 100px;
   --border-key-1: -50px;
   --border-key-2-3: 0;
@@ -101,7 +102,7 @@ wuhc-progressbar {
     top: 0;
     height: 100%;
     background-color: currentColor;
-    transition: width 0.5s ease-in-out;
+    transition: width .5s ease-in-out;
   }
 
   wuhc-rectangle {
@@ -135,52 +136,53 @@ wuhc-progressbar {
     #IndeterminateRoot {
       visibility: visible;
       display: flex;
-      animation: 3.917s linear infinite EllipseGrid;
+      animation: var(--anim-template) EllipseGrid;
     }
 
     #E1 {
-      animation: 3.917s linear infinite ProgressBarE1;
+      animation: var(--anim-template) ProgressBarE1;
     }
 
     #E2 {
-      animation: 3.917s linear infinite ProgressBarE2;
+      animation: var(--anim-template) ProgressBarE2;
     }
 
     #E3 {
-      animation: 3.917s linear infinite ProgressBarE3;
+      animation: var(--anim-template) ProgressBarE3;
     }
 
     #E4 {
-      animation: 3.917s linear infinite ProgressBarE4;
+      animation: var(--anim-template) ProgressBarE4;
     }
 
     #E5 {
-      animation: 3.917s linear infinite ProgressBarE5;
+      animation: var(--anim-template) ProgressBarE5;
     }
 
     #B1 {
-      animation: 3.917s linear infinite ProgressBarB1;
+      animation: var(--anim-template) ProgressBarB1;
     }
 
     #B2 {
-      animation: 3.917s linear infinite ProgressBarB2;
+      animation: var(--anim-template) ProgressBarB2;
     }
 
     #B3 {
-      animation: 3.917s linear infinite ProgressBarB3;
+      animation: var(--anim-template) ProgressBarB3;
     }
 
     #B4 {
-      animation: 3.917s linear infinite ProgressBarB4;
+      animation: var(--anim-template) ProgressBarB4;
     }
 
     #B5 {
-      animation: 3.917s linear infinite ProgressBarB5;
+      animation: var(--anim-template) ProgressBarB5;
     }
   }
 }
 
 wuhc-progressring {
+  --anim-template: 4.305s linear infinite;
   overflow: hidden;
   container-name: ProgressRing;
   container-type: size;
@@ -220,51 +222,51 @@ wuhc-progressring {
 
   &[isactive="true"] {
     #E1R {
-      animation: 4.305s linear infinite E1R;
+      animation: var(--anim-template) E1R;
     }
 
     wuhc-canvas>#E1 {
-      animation: 4.305s linear infinite E-all-o;
+      animation: var(--anim-template) E-all-o;
     }
 
     #E2R {
-      animation: 4.305s linear 0.167s infinite E2R;
+      animation: var(--anim-template) .167s E2R;
     }
 
     wuhc-canvas>#E2 {
-      animation: 4.305s linear 0.167s infinite E-all-o;
+      animation: var(--anim-template) .167s E-all-o;
     }
 
     #E3R {
-      animation: E3R 4.305s linear 0.334s infinite;
+      animation: var(--anim-template) .334s E3R;
     }
 
     wuhc-canvas>#E3 {
-      animation: E-all-o 4.305s linear 0.334s infinite;
+      animation: var(--anim-template) .334s E-all-o;
     }
 
     #E4R {
-      animation: E4R 4.305s linear 0.501s infinite;
+      animation: var(--anim-template) .501s E4R;
     }
 
     wuhc-canvas>#E4 {
-      animation: E-all-o 4.305s linear 0.501s infinite;
+      animation: var(--anim-template) .501s E-all-o;
     }
 
     #E5R {
-      animation: E5R 4.305s linear 0.668s infinite;
+      animation: var(--anim-template) .668s E5R;
     }
 
     wuhc-canvas>#E5 {
-      animation: E-all-o 4.305s linear 0.668s infinite;
+      animation: var(--anim-template) .668s E-all-o;
     }
 
     #E6R {
-      animation: E6R 4.305s linear 0.835s infinite;
+      animation: var(--anim-template) .835s E6R;
     }
 
     wuhc-canvas>#E6 {
-      animation: E-all-o 4.305s linear 0.835s infinite;
+      animation: var(--anim-template) .835s E-all-o;
     }
   }
 }
@@ -279,7 +281,7 @@ wuhc-progressring {
 
 @container ProgressRing ((width <=40px) and (height <=40px)) {
   wuhc-progressring wuhc-canvas wuhc-ellipse {
-    transform: translate(-283%) !important;
+    transform: translate(-325%) !important;
     height: calc(10% + 1px) !important;
     width: calc(10% + 1px) !important;
   }
@@ -288,7 +290,7 @@ wuhc-progressring {
 @keyframes E1R {
   0% {
     transform: rotate(-110deg);
-    animation-timing-function: cubic-bezier(0.02, 0.03, 0.38, 0.77);
+    animation-timing-function: cubic-bezier(.02, .03, .38, .77);
   }
 
   10.29036004645761% {
@@ -297,12 +299,12 @@ wuhc-progressring {
 
   27.87456445993031% {
     transform: rotate(93deg);
-    animation-timing-function: cubic-bezier(0.57, 0.17, 0.95, 0.75);
+    animation-timing-function: cubic-bezier(.57, .17, .95, .75);
   }
 
   37.5609756097561% {
     transform: rotate(205deg);
-    animation-timing-function: cubic-bezier(0, 0.19, 0.07, 0.72);
+    animation-timing-function: cubic-bezier(0, .19, .07, .72);
   }
 
   46.85249709639954% {
@@ -311,7 +313,7 @@ wuhc-progressring {
 
   64.64576074332172% {
     transform: rotate(439deg);
-    animation-timing-function: cubic-bezier(0, 0, 0.95, 0.37);
+    animation-timing-function: cubic-bezier(0, 0, .95, .37);
   }
 
   74.72706155632985%,
@@ -323,7 +325,7 @@ wuhc-progressring {
 @keyframes E2R {
   0% {
     transform: rotate(-116deg);
-    animation-timing-function: cubic-bezier(0.02, 0.03, 0.38, 0.77);
+    animation-timing-function: cubic-bezier(.02, .03, .38, .77);
   }
 
   10.29036004645761% {
@@ -332,12 +334,12 @@ wuhc-progressring {
 
   27.87456445993031% {
     transform: rotate(87deg);
-    animation-timing-function: cubic-bezier(0.57, 0.17, 0.95, 0.75);
+    animation-timing-function: cubic-bezier(.57, .17, .95, .75);
   }
 
   37.5609756097561% {
     transform: rotate(199deg);
-    animation-timing-function: cubic-bezier(0, 0.19, 0.07, 0.72);
+    animation-timing-function: cubic-bezier(0, .19, .07, .72);
   }
 
   46.85249709639954% {
@@ -346,7 +348,7 @@ wuhc-progressring {
 
   64.64576074332172% {
     transform: rotate(433deg);
-    animation-timing-function: cubic-bezier(0, 0, 0.95, 0.37);
+    animation-timing-function: cubic-bezier(0, 0, .95, .37);
   }
 
   74.72706155632985%,
@@ -358,7 +360,7 @@ wuhc-progressring {
 @keyframes E3R {
   0% {
     transform: rotate(-122deg);
-    animation-timing-function: cubic-bezier(0.02, 0.03, 0.38, 0.77);
+    animation-timing-function: cubic-bezier(.02, .03, .38, .77);
   }
 
   10.29036004645761% {
@@ -367,12 +369,12 @@ wuhc-progressring {
 
   27.87456445993031% {
     transform: rotate(81deg);
-    animation-timing-function: cubic-bezier(0.57, 0.17, 0.95, 0.75);
+    animation-timing-function: cubic-bezier(.57, .17, .95, .75);
   }
 
   37.5609756097561% {
     transform: rotate(193deg);
-    animation-timing-function: cubic-bezier(0, 0.19, 0.07, 0.72);
+    animation-timing-function: cubic-bezier(0, .19, .07, .72);
   }
 
   46.85249709639954% {
@@ -381,7 +383,7 @@ wuhc-progressring {
 
   64.64576074332172% {
     transform: rotate(427deg);
-    animation-timing-function: cubic-bezier(0, 0, 0.95, 0.37);
+    animation-timing-function: cubic-bezier(0, 0, .95, .37);
   }
 
   74.72706155632985%,
@@ -393,7 +395,7 @@ wuhc-progressring {
 @keyframes E4R {
   0% {
     transform: rotate(-128deg);
-    animation-timing-function: cubic-bezier(0.02, 0.03, 0.38, 0.77);
+    animation-timing-function: cubic-bezier(.02, .03, .38, .77);
   }
 
   10.29036004645761% {
@@ -402,12 +404,12 @@ wuhc-progressring {
 
   27.87456445993031% {
     transform: rotate(75deg);
-    animation-timing-function: cubic-bezier(0.57, 0.17, 0.95, 0.75);
+    animation-timing-function: cubic-bezier(.57, .17, .95, .75);
   }
 
   37.5609756097561% {
     transform: rotate(187deg);
-    animation-timing-function: cubic-bezier(0, 0.19, 0.07, 0.72);
+    animation-timing-function: cubic-bezier(0, .19, .07, .72);
   }
 
   46.85249709639954% {
@@ -416,7 +418,7 @@ wuhc-progressring {
 
   64.64576074332172% {
     transform: rotate(421deg);
-    animation-timing-function: cubic-bezier(0, 0, 0.95, 0.37);
+    animation-timing-function: cubic-bezier(0, 0, .95, .37);
   }
 
   74.72706155632985%,
@@ -428,7 +430,7 @@ wuhc-progressring {
 @keyframes E5R {
   0% {
     transform: rotate(-134deg);
-    animation-timing-function: cubic-bezier(0.02, 0.03, 0.38, 0.77);
+    animation-timing-function: cubic-bezier(.02, .03, .38, .77);
   }
 
   10.29036004645761% {
@@ -437,12 +439,12 @@ wuhc-progressring {
 
   27.87456445993031% {
     transform: rotate(69deg);
-    animation-timing-function: cubic-bezier(0.57, 0.17, 0.95, 0.75);
+    animation-timing-function: cubic-bezier(.57, .17, .95, .75);
   }
 
   37.5609756097561% {
     transform: rotate(181deg);
-    animation-timing-function: cubic-bezier(0, 0.19, 0.07, 0.72);
+    animation-timing-function: cubic-bezier(0, .19, .07, .72);
   }
 
   46.85249709639954% {
@@ -451,7 +453,7 @@ wuhc-progressring {
 
   64.64576074332172% {
     transform: rotate(415deg);
-    animation-timing-function: cubic-bezier(0, 0, 0.95, 0.37);
+    animation-timing-function: cubic-bezier(0, 0, .95, .37);
   }
 
   74.72706155632985%,
@@ -463,7 +465,7 @@ wuhc-progressring {
 @keyframes E6R {
   0% {
     transform: rotate(-140deg);
-    animation-timing-function: cubic-bezier(0.02, 0.03, 0.38, 0.77);
+    animation-timing-function: cubic-bezier(.02, .03, .38, .77);
   }
 
   10.29036004645761% {
@@ -472,12 +474,12 @@ wuhc-progressring {
 
   27.87456445993031% {
     transform: rotate(63deg);
-    animation-timing-function: cubic-bezier(0.57, 0.17, 0.95, 0.75);
+    animation-timing-function: cubic-bezier(.57, .17, .95, .75);
   }
 
   37.5609756097561% {
     transform: rotate(175deg);
-    animation-timing-function: cubic-bezier(0, 0.19, 0.07, 0.72);
+    animation-timing-function: cubic-bezier(0, .19, .07, .72);
   }
 
   46.85249709639954% {
@@ -486,7 +488,7 @@ wuhc-progressring {
 
   64.64576074332172% {
     transform: rotate(409deg);
-    animation-timing-function: cubic-bezier(0, 0, 0.95, 0.37);
+    animation-timing-function: cubic-bezier(0, 0, .95, .37);
   }
 
   74.72706155632985%,
@@ -616,7 +618,7 @@ wuhc-progressring {
 @keyframes ProgressBarE1 {
   0% {
     transform: translateX(0);
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
   }
 
   25.52974214960429% {
@@ -625,7 +627,7 @@ wuhc-progressring {
 
   51.05948429920858% {
     transform: translateX(calc(var(--width) / 3));
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
   }
 
   76.58922644881287%,
@@ -641,7 +643,7 @@ wuhc-progressring {
 
   4.263466938983916% {
     transform: translateX(0);
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
   }
 
   29.79320908858821% {
@@ -650,7 +652,7 @@ wuhc-progressring {
 
   55.32295123819249% {
     transform: translateX(calc(var(--width) / 3));
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
   }
 
   80.85269338779678%,
@@ -666,7 +668,7 @@ wuhc-progressring {
 
   8.501404135818228% {
     transform: translateX(0);
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
   }
 
   34.03114628542252% {
@@ -675,7 +677,7 @@ wuhc-progressring {
 
   59.56088843502681% {
     transform: translateX(calc(var(--width) / 3));
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
   }
 
   85.0906305846311%,
@@ -691,7 +693,7 @@ wuhc-progressring {
 
   12.76487107480214% {
     transform: translateX(0);
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
   }
 
   38.29461322440643% {
@@ -700,7 +702,7 @@ wuhc-progressring {
 
   63.82435537401072% {
     transform: translateX(calc(var(--width) / 3));
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
   }
 
   89.35409752361501%,
@@ -716,7 +718,7 @@ wuhc-progressring {
 
   17.02833801378606% {
     transform: translateX(0);
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
   }
 
   42.55808016339035% {
@@ -725,7 +727,7 @@ wuhc-progressring {
 
   68.08782231299464% {
     transform: translateX(calc(var(--width) / 3));
-    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
   }
 
   93.61756446259893%,
@@ -741,5 +743,5 @@ wuhc-window {
   background-color: #005a9e;
   width: 100svw;
   height: 100svh;
-  transition: background 0.5;
+  transition: background .5;
 }
